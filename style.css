@@ -25,8 +25,9 @@ input, button, textarea, select {
     grid-template-areas: 
         "header header"
         "sidebar main-content";
-    grid-template-columns: 1fr 5fr;
-    align-items: start;
+    grid-template-columns: max-content 1fr;
+    background-image: url(./img/background.jpg);
+    background-size: 100%;
 }
 
 .header {
@@ -34,11 +35,12 @@ input, button, textarea, select {
     position: sticky;
     top: 0px;
     height: 12vh;
-    background-color: rgb(87, 117, 110);
     display: grid;
     align-items: center;
-    padding-left: 50px;
-    color: white;
+    justify-items: center;
+    color: #ffffff;
+    background-color: rgba(255, 145, 0, 0.9);
+    text-shadow: 0px 0px 5px black;
 }
 
 .logo {
@@ -48,24 +50,58 @@ input, button, textarea, select {
 .sidebar {
     grid-area: sidebar;
     position: sticky;
-    padding: 50px;
     top: 12vh;
+    padding: 50px;
     height: 88vh;
-    background-color: rgb(72, 110, 146);
-    color: white;
+    color: #ffffff;
+    display: grid;
+    gap: 60px;
+    grid-auto-rows: max-content;
+}
+
+.sidebar h2 {
+    font-size: 2.5rem;
+    text-shadow: 0px 0px 10px black;
+}
+
+.sidebar p {
+    font-size: 1.5rem;
+    text-shadow: 0px 0px 10px black;
+    margin-left: 20px;
+}
+
+.sidebar .sidebar-button {
+    justify-self: center;
 }
 
 .main-content {
     grid-area: main-content;
-    background-color: rgb(191, 192, 192);
     display: grid;
-    grid-template-columns: repeat(auto-fit, 300px);
-    grid-auto-rows: 300px;
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, 350px);
+    grid-auto-rows: 420px;
+    gap: 30px;
     padding: 50px;
 }
 
 .card {
     padding: 20px;
-    background-color: white;
+    background-color: rgba(136, 114, 81);
+    border-radius: 1px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    outline: 1px solid rgba(0, 0, 0, 0.7);
+    box-shadow: 5px 5px 20px 0px rgba(0, 0, 0);
+    border-left: 20px solid rgba(88, 65, 31, 0.658);
+    position: relative;
+}
+
+.card:before {
+    content: " ";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    width: 10px;
+    border-left: 1px solid rgba(0, 0, 0, 0.7);
+    box-shadow: -22px 0px 10px 0px rgba(0, 0, 0, 0.5);
 }
