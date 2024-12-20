@@ -20,6 +20,8 @@ input, button, textarea, select {
 
 /**********/
 
+/* Layout */
+
 .website-layout {
     display: grid;
     grid-template-areas: 
@@ -29,6 +31,8 @@ input, button, textarea, select {
     background-image: url(./img/background.jpg);
     background-size: 100%;
 }
+
+/* Header */
 
 .header {
     grid-area: header;
@@ -47,6 +51,8 @@ input, button, textarea, select {
     font-size: 5rem;
 }
 
+/* Sidebar */
+
 .sidebar {
     grid-area: sidebar;
     position: sticky;
@@ -64,7 +70,7 @@ input, button, textarea, select {
     text-shadow: 0px 0px 10px black;
 }
 
-.sidebar p {
+.sidebar .placeholder {
     font-size: 1.5rem;
     text-shadow: 0px 0px 10px black;
     margin-left: 20px;
@@ -73,6 +79,30 @@ input, button, textarea, select {
 .sidebar .sidebar-button {
     justify-self: center;
 }
+
+.sidebar-button button {
+    font-size: 1.3rem;
+    padding: 5px 30px;
+    font-weight: bold;
+    border-radius: 1.2rem;
+    border: 1px solid black;
+    background-color: rgb(39, 223, 63);
+    display: flex;
+    align-items: center;
+    gap: 10px
+}
+
+.sidebar-button button:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.sidebar-button svg {
+    height: 1.7rem;
+    width: 1.7rem;
+}
+
+/* Main-content */
 
 .main-content {
     grid-area: main-content;
@@ -83,8 +113,10 @@ input, button, textarea, select {
     padding: 50px;
 }
 
-.card {
-    padding: 20px;
+/* Books */
+
+.book {
+    padding: 50px 20px 20px 20px;
     background-color: rgba(136, 114, 81);
     border-radius: 1px;
     border-top-right-radius: 4px;
@@ -93,9 +125,16 @@ input, button, textarea, select {
     box-shadow: 5px 5px 20px 0px rgba(0, 0, 0);
     border-left: 20px solid rgba(88, 65, 31, 0.658);
     position: relative;
+    display: grid;
+    grid-template-rows: 40%;
+    gap: 10px;
+    grid-auto-rows: 1fr;
+    align-items: center;
+    color: white;
+    text-align: center;
 }
 
-.card:before {
+.book:before {
     content: " ";
     position: absolute;
     top: 0px;
@@ -104,4 +143,30 @@ input, button, textarea, select {
     width: 10px;
     border-left: 1px solid rgba(0, 0, 0, 0.7);
     box-shadow: -22px 0px 10px 0px rgba(0, 0, 0, 0.5);
+}
+
+.title {
+    font-size: 2rem;
+}
+
+.author {
+    font-size: 1.3rem;
+}
+
+.pages {
+    font-size: 0.8rem;
+}
+
+.delete-button button {
+    font-size: 1.2rem;
+    padding: 5px 30px;
+    font-weight: bold;
+    border-radius: 1.2rem;
+    border: 1px solid black;
+    background-color: rgb(240, 40, 40);
+}
+
+.delete-button button:hover {
+    transform: scale(1.1);
+    cursor: pointer;
 }
