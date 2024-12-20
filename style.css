@@ -84,9 +84,9 @@ input, button, textarea, select {
     font-size: 1.3rem;
     padding: 5px 30px;
     font-weight: bold;
-    border-radius: 1.2rem;
+    border-radius: 1.3rem;
     border: 1px solid black;
-    background-color: rgb(39, 223, 63);
+    background-color: rgb(37, 209, 60);
     display: flex;
     align-items: center;
     gap: 10px
@@ -100,6 +100,65 @@ input, button, textarea, select {
 .sidebar-button svg {
     height: 1.7rem;
     width: 1.7rem;
+}
+
+.new-book {
+    background-color:  rgba(136, 114, 81, 0.9);
+    border-radius: 10px;
+    border: 2px solid black;
+    padding: 15px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.new-book .textinput {
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    grid-column-start: span 2;
+    justify-items: end;
+    column-gap: 15px;
+    row-gap: 8px;
+    padding: 10px;
+}
+
+.new-book .question {
+    padding: 10px;
+    display: grid;
+    grid-auto-flow: column;
+    grid-column-start: span 2;
+    grid-template-columns: max-content 1fr;
+    align-items: center;
+    justify-items: center;
+}
+
+.question input[type="checkbox"] {
+    width: 1rem;
+    height: 1rem;
+}
+
+.new-book .submit {
+    display: flex;
+    justify-content: center;
+}
+
+.new-book button[type="submit"] {
+    font-size: 1rem;
+    padding: 5px 30px;
+    font-weight: bold;
+    border-radius: 5px;
+    border: 1px solid black;
+    background-color: rgb(37, 209, 60);
+}
+
+.new-book button[type="submit"]:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.hidden {
+    visibility: hidden;
 }
 
 /* Main-content */
@@ -145,6 +204,50 @@ input, button, textarea, select {
     box-shadow: -22px 0px 10px 0px rgba(0, 0, 0, 0.5);
 }
 
+.not-read:after {
+    content: "Not read yet";
+    position: absolute;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 20px;
+    right: 0px;
+    width: 100px;
+    height: 30px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    background-color: rgb(83, 175, 21);
+    font-size: 0.9rem;
+    border: 1px solid white;
+    border-right: none;
+}
+
+.read {
+    background-color: rgba(90, 75, 53, 0.904);
+    color: hsl(0, 0%, 70%);
+    position: relative;
+}
+
+.read:after {
+    content: "Already read";
+    position: absolute;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 20px;
+    right: 0px;
+    width: 100px;
+    height: 30px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    background-color: rgb(2, 141, 255);
+    font-size: 0.9rem;
+    border: 1px solid white;
+    border-right: none;
+}
+
 .title {
     font-size: 2rem;
 }
@@ -164,9 +267,11 @@ input, button, textarea, select {
     border-radius: 1.2rem;
     border: 1px solid black;
     background-color: rgb(240, 40, 40);
+    filter: brightness(1);
 }
 
 .delete-button button:hover {
     transform: scale(1.1);
     cursor: pointer;
 }
+

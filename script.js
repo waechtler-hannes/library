@@ -15,7 +15,7 @@ function Book(title, author, pages, read) {
 }
 
 function addBookToLibrary(title, author, pages, read) {
-    myLibrary.push(new Book(title, author, pages, read))
+    myLibrary.push(new Book(title, author, pages, read));
 }
 
 function displayBooks(array) {
@@ -35,6 +35,11 @@ function displayBooks(array) {
         pages.classList.add("pages");
         deleteButton.classList.add("delete-button");
         button.classList.add("button");
+        if (book.read) {
+            bookElement.classList.add("read");
+        } else {
+            bookElement.classList.add("not-read");
+        }
         // Add Text-Content
         title.textContent = book.title;
         author.textContent = book.author;
