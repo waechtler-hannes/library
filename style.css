@@ -19,3 +19,53 @@ input, button, textarea, select {
 }
 
 /**********/
+
+.website-layout {
+    display: grid;
+    grid-template-areas: 
+        "header header"
+        "sidebar main-content";
+    grid-template-columns: 1fr 5fr;
+    align-items: start;
+}
+
+.header {
+    grid-area: header;
+    position: sticky;
+    top: 0px;
+    height: 12vh;
+    background-color: rgb(87, 117, 110);
+    display: grid;
+    align-items: center;
+    padding-left: 50px;
+    color: white;
+}
+
+.logo {
+    font-size: 5rem;
+}
+
+.sidebar {
+    grid-area: sidebar;
+    position: sticky;
+    padding: 50px;
+    top: 12vh;
+    height: 88vh;
+    background-color: rgb(72, 110, 146);
+    color: white;
+}
+
+.main-content {
+    grid-area: main-content;
+    background-color: rgb(191, 192, 192);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 300px);
+    grid-auto-rows: 300px;
+    gap: 20px;
+    padding: 50px;
+}
+
+.card {
+    padding: 20px;
+    background-color: white;
+}
