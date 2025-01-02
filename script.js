@@ -8,10 +8,12 @@ addBookToLibrary("1984", "George Orwell", 328, true);
 addBookToLibrary("Pride and Prejudice", "Jane Austen", 432, false);
 
 const toggleFormButton = document.querySelector("#toggle-form");
-const formContainer = document.querySelector(".form-container");
 const form = document.querySelector(".new-book");
+const mainContent = document.querySelector(".main-content");
+const dialog = document.querySelector("dialog");
 
 toggleFormButton.addEventListener("click", () => {
+    const formContainer = document.querySelector(".form-container");
     formContainer.classList.toggle("hidden");
     const iconPath = toggleFormButton.querySelector("path");
     const p = toggleFormButton.querySelector("p");
@@ -33,6 +35,25 @@ form.addEventListener("submit", () => {
         form.querySelector("#read").checked)
     clearForm();
     updateBooks();
+})
+
+mainContent.addEventListener("click", (e) => {
+    if (e.target.getAttribute("class") === "delete-button") {
+        const bookName = dialog.querySelector("span");
+        bookName.textContent = e.target.parentNode.childNodes[0].textContent;
+        bookName.setAttribute("data-index-number", e.target.parentNode.getAttribute("data-index-number"));
+        dialog.showModal();
+    }
+})
+
+dialog.addEventListener("click", (e) => {
+    if (e.target.value === "cancel") {
+        dialog.close();
+    } else if (e.target.value === "continue") {
+        const index = dialog.querySelector("span");
+        deleteBook(index.getAttribute("data-index-number"));
+        updateBooks();
+    }
 })
 
 function clearForm() {
@@ -61,7 +82,6 @@ function displayBooks(array) {
         const title = document.createElement("h3");
         const author = document.createElement("p");
         const pages = document.createElement("p");
-        const deleteButtonContainer = document.createElement("div");
         const deleteButton = document.createElement("button");
         // Add classes to Elements
         bookElement.classList.add("book");
@@ -79,6 +99,8 @@ function displayBooks(array) {
         author.textContent = book.author;
         pages.textContent = book.pages + " pages";
         deleteButton.textContent = "Delete";
+        // Add data to book-element
+        bookElement.setAttribute("data-index-number", myLibrary.indexOf(book));
         // Append Elements
         libraryDisplay.appendChild(bookElement);
         bookElement.appendChild(title);
@@ -100,5 +122,8 @@ function updateBooks() {
     displayBooks(myLibrary);
 }
 
+function deleteBook(index) {
+    myLibrary.splice(index, 1);
+}
 
 displayBooks(myLibrary);

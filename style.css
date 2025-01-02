@@ -269,7 +269,6 @@ input, button, textarea, select {
     border-radius: 1.2rem;
     border: 1px solid black;
     background-color: rgb(240, 40, 40);
-    filter: brightness(1);
     width: max-content;
 }
 
@@ -278,3 +277,45 @@ input, button, textarea, select {
     cursor: pointer;
 }
 
+dialog {
+    align-self: center;
+    justify-self: center;
+    text-align: center;
+    padding: 50px;
+    max-width: 25%;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+}
+
+dialog form {
+    margin-top: 40px;
+    text-align: center;
+}
+
+dialog button {
+    font-size: 1.2rem;
+    padding: 5px 30px;
+    font-weight: bold;
+    border-radius: 1.2rem;
+    border: 1px solid black;
+    margin: 10px;
+    min-width: 150px;
+}
+
+dialog button:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.cancel {
+    background-color: rgb(255, 145, 0);
+}
+
+.continue {
+    background-color: rgb(240, 40, 40);
+}
+
+.dim {
+    filter: brightness(0.5);
+}
