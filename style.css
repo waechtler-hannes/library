@@ -193,6 +193,7 @@ input, button, textarea, select {
     color: white;
     text-align: center;
     justify-items: center;
+    pointer-events: none;
 }
 
 .book:before {
@@ -207,6 +208,8 @@ input, button, textarea, select {
 }
 
 .not-read:after {
+    pointer-events: all;
+    cursor: pointer;
     content: "Not read yet";
     position: absolute;
     color: white;
@@ -232,6 +235,8 @@ input, button, textarea, select {
 }
 
 .read:after {
+    pointer-events: all;
+    cursor: pointer;
     content: "Already read";
     position: absolute;
     color: white;
@@ -270,6 +275,7 @@ input, button, textarea, select {
     border: 1px solid black;
     background-color: rgb(240, 40, 40);
     width: max-content;
+    pointer-events: all;
 }
 
 .delete-button:hover {
@@ -317,5 +323,5 @@ dialog button:hover {
 }
 
 .dim {
-    filter: brightness(0.5);
+    filter: brightness(0.3);
 }

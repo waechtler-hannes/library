@@ -43,6 +43,11 @@ mainContent.addEventListener("click", (e) => {
         bookName.textContent = e.target.parentNode.childNodes[0].textContent;
         bookName.setAttribute("data-index-number", e.target.parentNode.getAttribute("data-index-number"));
         dialog.showModal();
+        updateDim();
+    }
+    if (e.target.getAttribute("class").includes("read")) {
+        e.target.classList.toggle("read");
+        e.target.classList.toggle("not-read");
     }
 })
 
@@ -55,6 +60,10 @@ dialog.addEventListener("click", (e) => {
         updateBooks();
     }
 })
+
+dialog.addEventListener("close", () => {
+    updateDim();
+});
 
 function clearForm() {
     form.querySelector("#title").value = "";
@@ -78,7 +87,7 @@ function displayBooks(array) {
     const libraryDisplay = document.querySelector(".main-content")
     array.forEach(book => {
         // Create needed Elements
-        const bookElement = document.createElement("div");
+        const bookElement = document.createElement("a");
         const title = document.createElement("h3");
         const author = document.createElement("p");
         const pages = document.createElement("p");
@@ -124,6 +133,15 @@ function updateBooks() {
 
 function deleteBook(index) {
     myLibrary.splice(index, 1);
+}
+
+function updateDim() {
+    const website = document.querySelector(".website-layout");
+    if (dialog.open) {
+        website.classList.add("dim");
+    } else {
+        website.classList.remove("dim");
+    }
 }
 
 displayBooks(myLibrary);
