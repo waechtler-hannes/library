@@ -1,1 +1,1 @@
-# library
+This is my seventh Project. It is a library where you can add and delete books from. You can also toggle their read-status. You can try it out here: https://waechtler-hannes.github.io/library/
