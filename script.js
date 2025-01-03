@@ -27,7 +27,8 @@ toggleFormButton.addEventListener("click", () => {
     }
 })
 
-form.addEventListener("submit", () => {
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
     addBookToLibrary(
         form.querySelector("#title").value, 
         form.querySelector("#author").value, 
@@ -44,10 +45,14 @@ mainContent.addEventListener("click", (e) => {
         bookName.setAttribute("data-index-number", e.target.parentNode.getAttribute("data-index-number"));
         dialog.showModal();
         updateDim();
-    }
-    if (e.target.getAttribute("class").includes("read")) {
-        e.target.classList.toggle("read");
-        e.target.classList.toggle("not-read");
+    } else if (e.target.getAttribute("class").includes("not-read")) {
+        e.target.classList.add("read");
+        e.target.classList.remove("not-read");
+        changeReadStatus(e.target.getAttribute("data-index-number"));
+    } else if (e.target.getAttribute("class").includes("read")){
+        e.target.classList.add("not-read");
+        e.target.classList.remove("read");
+        changeReadStatus(e.target.getAttribute("data-index-number"));
     }
 })
 
@@ -133,6 +138,14 @@ function updateBooks() {
 
 function deleteBook(index) {
     myLibrary.splice(index, 1);
+}
+
+function changeReadStatus(index) {
+    if (myLibrary[index].read) {
+        myLibrary[index].read = false;
+    } else {
+        myLibrary[index].read = true;
+    }
 }
 
 function updateDim() {
